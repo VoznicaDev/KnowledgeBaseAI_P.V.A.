@@ -173,7 +173,7 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
-    restart: unless-stopped
+    restart: no 
     labels:
       - "traefik.enable=false"
     command:
@@ -189,7 +189,7 @@ services:
 
   neo4j:
     image: neo4j:5.21
-    restart: unless-stopped
+    restart: no 
     environment:
       NEO4J_AUTH: ${NEO4J_USER}/${NEO4J_PASSWORD}
       NEO4J_server_memory_pagecache_size: 2G
@@ -220,7 +220,7 @@ services:
     env_file:
       - ${ENV_FILE:-.env.prod}
     image: postgres:15
-    restart: unless-stopped
+    restart: no 
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
